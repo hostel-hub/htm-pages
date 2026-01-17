@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- SEO -->
+  <title>Japanese Line Multiplication – Visual Math Learning</title>
+  <meta name="description" content="Visualize multiplication using the Japanese Line Method. A student-friendly interactive math tool designed with clarity, simplicity, and modern learning experience by HostelHub." />
+  <meta name="keywords" content="Japanese math method, line multiplication, visual math, math learning tool, students, HostelHub education" />
+
+   
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+  </style>
+ 
+  
+</head>
+
+<body class="bg-background text-foreground transition-colors duration-300">
+ 
+
+<!-- ===== HERO ===== -->
+<section class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+  <div>
+    <span class="inline-block px-4 py-1 rounded-full bg-accent/20 text-accent text-sm mb-4">
+      Visual Learning
+    </span>
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+      Learn Multiplication  
+      <span class="text-accent">Visually</span>
+    </h2>
+    <p class="mt-6 text-muted-foreground max-w-xl">
+      The Japanese Line Method transforms numbers into lines and intersections,
+      helping students understand multiplication clearly and intuitively.
+    </p>
+  </div>
+
+  <div class="bg-card rounded-2xl p-8">
+    <h3 class="font-semibold mb-4">Why this method?</h3>
+    <ul class="space-y-3 text-sm text-muted-foreground">
+      <li>• No memorization</li>
+      <li>• Visual understanding</li>
+      <li>• Great for beginners</li>
+      <li>• Builds math confidence</li>
+    </ul>
+  </div>
+</section>
+ 
+
+<!-- ===== TOOL ===== -->
+<section class="max-w-5xl mx-auto px-6 pb-20">
+  <div class="bg-card rounded-2xl p-8">
+
+    <!-- Inputs -->
+    <div class="flex flex-col md:flex-row gap-4 mb-6">
+      <input
+        id="a"
+        type="number"
+        min="0"
+        placeholder="Number A (e.g. 312)"
+        class="w-full px-5 py-3 rounded-full border border-muted focus:outline-none focus:ring-2 focus:ring-accent"
+      />
+      <input
+        id="b"
+        type="number"
+        min="0"
+        placeholder="Number B (e.g. 24)"
+        class="w-full px-5 py-3 rounded-full border border-muted focus:outline-none focus:ring-2 focus:ring-accent"
+      />
+      <button
+        onclick="draw()"
+        class="px-8 py-3 rounded-full bg-accent text-black font-medium"
+      >
+        Visualize
+      </button>
+    </div>
+
+    <!-- Canvas -->
+    <div class="overflow-x-auto">
+      <canvas
+        id="canvas"
+        width="900"
+        height="500"
+        class="bg-card rounded-3xl "
+      ></canvas>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== STEP BY STEP ===== -->
+<section class="max-w-7xl mx-auto px-6 pb-20">
+  <h3 class="text-2xl font-semibold mb-8">How It Works</h3>
+
+  <div class="grid md:grid-cols-3 gap-8 text-sm text-muted-foreground">
+    <div class="bg-card rounded-2xl p-6">
+      <h4 class="font-semibold mb-2">Step 1</h4>
+      Draw parallel lines for each digit.
+    </div>
+    <div class="bg-card rounded-2xl p-6">
+      <h4 class="font-semibold mb-2">Step 2</h4>
+      Count intersections diagonally.
+    </div>
+    <div class="bg-card rounded-2xl p-6">
+      <h4 class="font-semibold mb-2">Step 3</h4>
+      Apply carry-over to get the final answer.
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="text-center py-10 text-sm text-muted-foreground">
+  Built for students • Designed with ❤️ by HostelHub
+</footer>
+ 
+ 
+
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    const lineGap = 14;
+    const digitGap = 50;
+
+    function drawNumberLines(number, startX, startY, horizontal) {
+      const digits = number.toString().split("").map(Number);
+      let offset = 0;
+
+      digits.forEach(d => {
+        for (let i = 0; i < d; i++) {
+          ctx.beginPath();
+          if (horizontal) {
+            ctx.moveTo(startX, startY + offset + i * lineGap);
+            ctx.lineTo(startX + 420, startY + offset + i * lineGap);
+          } else {
+            ctx.moveTo(startX + offset + i * lineGap, startY);
+            ctx.lineTo(startX + offset + i * lineGap, startY + 420);
+          }
+          ctx.stroke();
+        }
+        offset += d * lineGap + digitGap;
+      });
+    }
+
+    function getDigitGroups(number, start, isVertical) {
+      const digits = number.toString().split("").map(Number);
+      let groups = [];
+      let offset = 0;
+
+      digits.forEach((d, digitIndex) => {
+        let lines = [];
+        for (let i = 0; i < d; i++) {
+          lines.push({ index: i, pos: start + offset + i * lineGap });
+        }
+        groups.push(lines);
+        offset += d * lineGap + digitGap;
+      });
+      return groups;
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.lineWidth = 1.5;
+
+      const a = document.getElementById("a").value;
+      const b = document.getElementById("b").value;
+      if (!a || !b) return;
+
+      // Draw lines
+      drawNumberLines(b, 120, 160, true);
+      drawNumberLines(a, 300, 60, false);
+
+      const vGroups = getDigitGroups(a, 300, true);   // vertical digit groups
+      const hGroups = getDigitGroups(b, 160, false);  // horizontal digit groups
+
+      /*
+        TRUE Japanese method:
+        - Cross EVERY digit-group with EVERY digit-group
+        - A block of 3×3 intersections is ONE group
+        - Groups are placed diagonally by (digitIndexA + digitIndexB)
+      */
+
+      const diagonals = {};
+
+      vGroups.forEach((vLines, vDigitIndex) => {
+        hGroups.forEach((hLines, hDigitIndex) => {
+          const diagIndex = vDigitIndex + hDigitIndex;
+          if (!diagonals[diagIndex]) diagonals[diagIndex] = [];
+
+          vLines.forEach(v => {
+            hLines.forEach(h => {
+              diagonals[diagIndex].push({ x: v.pos, y: h.pos });
+            });
+          });
+        });
+      });
+
+      const colors = ["#e74c3c", "#3498db", "#27ae60", "#9b59b6", "#f39c12", "#1abc9c"];
+      const keys = Object.keys(diagonals).map(Number).sort((a, b) => a - b);
+
+      let carry = 0;
+      let result = [];
+
+      // Solve diagonals from right to left and COLLECT counts
+      const diagonalSums = [];
+
+      for (let i = keys.length - 1; i >= 0; i--) {
+        const dots = diagonals[keys[i]];
+        const sum = dots.length + carry;
+        diagonalSums.unshift({ value: dots.length, color: colors[keys[i] % colors.length] });
+        result.unshift(sum % 10);
+        carry = Math.floor(sum / 10);
+
+        ctx.fillStyle = colors[keys[i] % colors.length];
+        dots.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+          ctx.fill();
+        });
+      }
+
+      if (carry > 0) result.unshift(carry);
+
+      ctx.fillStyle = "#000";
+      ctx.font = "20px Arial";
+      ctx.fillText("Final Answer: " + result.join(""), 120, 60);
+
+      // Draw colored diagonal counts at bottom
+      let xPos = 120;
+      const yPos = canvas.height - 40;
+      ctx.font = "16px Arial";
+
+      diagonalSums.forEach(d => {
+        ctx.fillStyle = d.color;
+        ctx.fillText(d.value.toString(), xPos, yPos);
+        xPos += 30;
+      });
+    }
+  </script>
+
+</body>
+</html>
+
+</body>
+</html>
