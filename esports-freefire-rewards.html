@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Free Fire Tournament | Hostelhub eSports Arena</title>
+    <meta name="description" content="Register for the Hostelhub Free Fire tournament. Clash Squad & Battle Royale. Casual players only. Win PKR 20,000!">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        'accent': '#FACC15', // Free Fire Yellow
+                        'accent-foreground': '#000000',
+                        'bg-card': '#F8FAFC', 
+                        'primary': '#000000',
+                        'background': '#FFFFFF'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * { box-shadow: none !important; border: none !important; -webkit-tap-highlight-color: transparent; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-marquee { display: flex; width: max-content; animation: scroll 30s linear infinite; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #FACC15; border-radius: 10px; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+
+<body class="bg-background text-primary antialiased overflow-x-hidden">
+
+<audio id="bg-music" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+</audio>
+
+<button id="sound-toggle" class="fixed bottom-6 right-6 z-[100] bg-accent text-accent-foreground p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all">
+    <svg id="icon-speaker" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+    <svg id="icon-mute" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
+</button>
+
+<main>
+    <header class="relative min-h-[85vh] flex items-center bg-black overflow-hidden px-4 py-16">
+        <img src="https://wallpapercave.com/wp/wp4855721.jpg" 
+             class="absolute inset-0 w-full h-full object-cover  opacity-50 " alt="Free Fire Background">
+        <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black via-black/60 to-transparent"></div>
+
+        <div class="container mx-auto relative z-10">
+            <div data-aos="fade-down" class="inline-flex items-center gap-2 bg-accent px-4 py-2 rounded-xl font-black italic uppercase text-xs mb-6">
+                <span class="w-2 h-2 bg-black rounded-full animate-ping"></span>
+                Free Fire: Underdog Season
+            </div>
+            <h1 data-aos="fade-up" data-aos-delay="100" class="text-5xl md:text-8xl font-black text-white italic uppercase leading-none tracking-tighter mb-6">
+                GET READY TO <br><span class="text-accent">BOOYAH.</span>
+            </h1>
+            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-300 font-bold max-w-xl mb-8 italic uppercase">
+                Casual players only. No Heroic or Grandmaster squads allowed. It's time for the averages to shine.
+            </p>
+            <div data-aos="zoom-in" data-aos-delay="300" class="flex flex-col sm:flex-row gap-4">
+                <a href="#register" class="bg-accent text-black px-10 py-4 rounded-xl font-black text-xl italic uppercase hover:scale-105 transition-transform text-center">Register Squad</a>
+                <div class="bg-white/10 backdrop-blur-md px-6 py-3 rounded-xl border border-white/10 text-center">
+                    <p class="text-zinc-400 text-[10px] font-black uppercase">Grand Prize</p>
+                    <p class="text-white text-2xl font-black italic">PKR 10,000</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-accent py-3 overflow-hidden">
+        <div class="animate-marquee text-black font-black italic uppercase text-lg">
+            Free Fire Mobile • No Emulators • No Hacks • Instant Payout • Casuals Only • Anti-Cheat Active • Clash Squad 4v4 • Free Fire Mobile • No Emulators • No Hacks
+        </div>
+    </div>
+
+    <section class="py-10 bg-background">
+        <div class="container mx-auto px-4">
+            <div data-aos="zoom-in" class="max-w-4xl mx-auto relative group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-accent to-yellow-500 rounded-2xl blur opacity-20"></div>
+                <div class="relative bg-black rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-5">
+                        <div class="w-16 h-16 bg-zinc-900 overflow-hidden rounded-xl flex items-center justify-center border border-zinc-800">
+                        <img src="https://hostelhub.pk/logo.png"/>
+                         </div>
+                        <div>
+                            <p class="text-zinc-500 text-[10px] font-black  italic">Hosted By</p>
+                            <h3 class="text-2xl font-black text-white ">Hostelhub<span class="text-accent">.pk</span></h3>
+                        </div>
+                    </div>
+                    <a href="https://hostelhub.pk" target="_blank" class="bg-accent text-black px-6 py-3 rounded-lg font-black text-xs uppercase italic tracking-widest">Visit Platform</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-card">
+        <div class="container mx-auto px-4 text-center mb-12">
+            <h2 data-aos="fade-up" class="text-4xl md:text-6xl font-black italic uppercase italic">Battle <span class="text-accent">Zones</span></h2>
+        </div>
+        <div class="container mx-auto px-4 grid md:grid-cols-3 gap-6">
+            <article data-aos="fade-up" data-aos-delay="100" class="bg-background rounded-2xl overflow-hidden">
+                <img src="https://i.ytimg.com/vi/AhUymKC5d_Q/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDOdTZjcDf0QC9lgpQZEBcsiXLckA" class="w-full h-48 object-cover" alt="Clash Squad">
+                <div class="p-6">
+                    <h3 class="text-xl font-black italic uppercase mb-2">Clash Squad (4v4)</h3>
+                    <p class="text-zinc-500 font-bold text-sm italic">Intense 4v4 rounds. Best of 7 wins. Buy your weapons and dominate.</p>
+                </div>
+            </article>
+            <article data-aos="fade-up" data-aos-delay="200" class="bg-background rounded-2xl overflow-hidden">
+                <img src="https://i.pinimg.com/736x/07/a6/6c/07a66c44e3f0fa62edff789421c2ad7c.jpg" class="w-full h-48 object-cover" alt="Bermuda">
+                <div class="p-6">
+                    <h3 class="text-xl font-black italic uppercase mb-2">Bermuda Royale</h3>
+                    <p class="text-zinc-500 font-bold text-sm italic">The classic survival. 50 players, 1 winner. Loot fast, survive longer.</p>
+                </div>
+            </article>
+            <article data-aos="fade-up" data-aos-delay="300" class="bg-background rounded-2xl overflow-hidden">
+                <img src="https://staticg.sportskeeda.com/editor/2021/08/52dbb-16284071119223-800.jpg?w=640" class="w-full h-48 object-cover" alt="Lone Wolf">
+                <div class="p-6">
+                    <h3 class="text-xl font-black italic uppercase mb-2">Lone Wolf (1v1)</h3>
+                    <p class="text-zinc-500 font-bold text-sm italic">Strictly skill-based. No teammates, just you and your enemy in a small cage.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="register" class="py-20 bg-background overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-5xl font-black italic uppercase mb-6 leading-none">Enter the <br><span class="text-accent">Arena.</span></h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-4 bg-card p-4 rounded-xl font-black italic uppercase text-sm">
+                            <span class="text-accent text-2xl">01</span> No Heroic/Grandmaster Players
+                        </li>
+                        <li class="flex items-center gap-4 bg-card p-4 rounded-xl font-black italic uppercase text-sm">
+                            <span class="text-accent text-2xl">02</span> Mobile Devices Only
+                        </li>
+                    </ul>
+                </div>
+                <div data-aos="fade-left" class="bg-card p-8 rounded-3xl relative">
+                    <form onsubmit="handleSubmit(event)" class="space-y-4">
+                        <input type="text" id="team-name" required placeholder="SQUAD NAME" class="w-full bg-white px-5 py-4 rounded-xl font-black italic uppercase outline-none focus:ring-2 focus:ring-accent transition">
+                        <select id="game-select" class="w-full bg-white px-5 py-4 rounded-xl font-black italic uppercase outline-none cursor-pointer">
+                            <option>FREE FIRE  (RS. 300)</option> 
+                        </select>
+                        <input type="tel" id="whatsapp" required placeholder="WHATSAPP (+92)" class="w-full bg-white px-5 py-4 rounded-xl font-black italic uppercase outline-none">
+                        <button type="submit" class="w-full bg-accent text-black py-5 rounded-xl font-black text-xl italic uppercase hover:scale-[1.02] transition-transform">Confirm Entry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+
+    const audio = document.getElementById('bg-music');
+    const soundBtn = document.getElementById('sound-toggle');
+    const speakerIcon = document.getElementById('icon-speaker');
+    const muteIcon = document.getElementById('icon-mute');
+    let isPlaying = false;
+
+    function toggleAudio() {
+        if (isPlaying) { audio.pause(); speakerIcon.classList.add('hidden'); muteIcon.classList.remove('hidden'); }
+        else { audio.play().catch(e => {}); speakerIcon.classList.remove('hidden'); muteIcon.classList.add('hidden'); }
+        isPlaying = !isPlaying;
+    }
+
+    soundBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleAudio(); });
+    window.addEventListener('click', () => { if (!isPlaying) toggleAudio(); }, { once: true });
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        location.assign("https://forms.clickup.com/90182064010/f/2kzma5wa-1318/ZJ7Q4S41D8SLD3YNVW")
+     }
+</script>
+</body>
+</html>
